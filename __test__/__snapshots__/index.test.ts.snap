@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image method .edit resizes img .edit resizes the Image with Sharp and returns the resized Image 1`] = `
+Object {
+  "channels": 3,
+  "format": "jpeg",
+  "height": 720,
+  "premultiplied": false,
+  "size": 104038,
+  "width": 1200,
+}
+`;
