@@ -11,10 +11,3 @@ This project uses the external "sharp"-library to resize pictures
    - type in your chosen image with its name at FILENAME, your chosen width at YOURWIDHT and your chosen height at YOURHEIGHT
 
 - you can add your own jpg-images to the folder 'images' to resize them
-
-## scripts
-
-- `npm install` => installing all dependencies to make the application work
-- `npm start` => start the local server on http://localhost:3000
-- `npm run build` => transpile typescript to javascript
-- `npm run test` => run the tests
