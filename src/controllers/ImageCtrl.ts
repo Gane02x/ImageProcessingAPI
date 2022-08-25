@@ -12,12 +12,12 @@ export class ImageCtrl {
     const outdir = `./images/res_${width}x${height}-${imgName}.jpg`
     const resizedImg = path.resolve(outdir)
     if (!fs.existsSync(resizedImg)) {
-       await Image.edit(outdir, imgName, width, height)
-       //eslint-disable-next-line no-console, no-undef
-       console.log(
-       `Resizing ${imgName} with given width:${width} and height:${height}`
-    )
+       const response = await Image.edit(outdir, imgName, width, height)
     }
+    if (!response) {
+      //eslint-disable-next-line no-console, no-undef
+      console.log("No Image found!")
+      res.status(404).send("Image not found!")
     if (!imgName || !width || !height) {
       res
         .status(400)
