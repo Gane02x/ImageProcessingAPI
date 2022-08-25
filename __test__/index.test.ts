@@ -28,7 +28,7 @@ describe("Image method .edit resizes img", () => {
     const imgName = "M8"
     const width = "1200"
     const height = "720"
-    const outdir = `./images/res_${width}x${height}-${imgName}.jpg`
+    const outdir = `./images/new/${imgName}-${width}-${height}.jpg`
 
     const res = await Image.edit(outdir, imgName, width, height)
     expect(res).toMatchSnapshot()
