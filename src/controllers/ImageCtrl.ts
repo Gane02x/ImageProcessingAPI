@@ -1,5 +1,7 @@
 import { Request, Response } from "express"
 import Image from "../utils/Image"
+import fs from "fs"
+import path from "path"
 
 export class ImageCtrl {
   async resizeImage(req: Request, res: Response) {
@@ -8,7 +10,14 @@ export class ImageCtrl {
     const height = req.query.height as unknown as string
 
     const outdir = `./images/res_${width}x${height}-${imgName}.jpg`
-    const resizedImg = await Image.edit(outdir, imgName, width, height)
+    const resizedImg = path.resolve(outdir)
+    if (!fs.existsSync(resizedImg)) {
+       await Image.edit(outdir, imgName, width, height)
+       //eslint-disable-next-line no-console, no-undef
+       console.log(
+       `Resizing ${imgName} with given width:${width} and height:${height}`
+    )
+    }
     if (!imgName || !width || !height) {
       res
         .status(400)
@@ -17,10 +26,6 @@ export class ImageCtrl {
         )
     }
     res.status(200).send(resizedImg)
-    //eslint-disable-next-line no-console, no-undef
-    console.log(
-      `Resizing ${imgName} with given width:${width} and height:${height}`
-    )
   }
 }
 export default new ImageCtrl()
