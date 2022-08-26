@@ -9,7 +9,7 @@ export class Image {
       return newImage
     } catch (error) {
       // eslint-disable-next-line no-console, no-undef
-      console.log("Error at editing img", error)
+      console.log("Provide a given filename", error)
     }
   }
 }
