@@ -10,7 +10,7 @@ export class ImageCtrl {
     const width = req.query.width as unknown as string
     const height = req.query.height as unknown as string
 
-    const outdir = `./images/res_${width}x${height}-${imgName}.jpg`
+    const outdir = `./images/new/${imgName}-${width}-${height}.jpg`
     const resizedImg = path.resolve(outdir)
     
     if ( Number(width) <= 0 || Number(height) <= 0 ) {
