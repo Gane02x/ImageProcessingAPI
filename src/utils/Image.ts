@@ -10,8 +10,8 @@ export class Image {
     } catch (error) {
       // eslint-disable-next-line no-console, no-undef
       console.log("Provide a given filename", error)
+      }
     }
   }
-}
 
 export default new Image()
